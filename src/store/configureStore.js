@@ -1,7 +1,5 @@
-import React from 'react'
 import { createStore, applyMiddleware, combineReducers } from 'redux'
-import { syncHistoryWithStore,routerReducer } from 'react-router-redux'
-//import thunkMiddleware from 'redux-thunk'
+import { routerReducer } from 'react-router-redux'
 import { apiMiddleware } from 'call-api-middleware'
 import * as reducers from '../reducers'
 
