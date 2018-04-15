@@ -1,15 +1,18 @@
+import Immutable, { List, Map } from 'immutable'
 import {
   GET_INIT_LIST
 } from 'Actions/init'
 
-function initReducer (state = {
-  list : []
-}, action) {
+const initialState = Immutable.fromJS({
+    list : []
+})
+
+function initReducer (state = initialState, action) {
   switch (action.type) {
     case GET_INIT_LIST:
-      return Object.assign({}, state, {
+      return Immutable.merge(state,Map({
         list: action.data
-      })
+      }))
     default:
       return state
   }

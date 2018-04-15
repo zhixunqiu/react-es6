@@ -1,11 +1,13 @@
-import { createStore, applyMiddleware, combineReducers } from 'redux'
-import { routerReducer } from 'react-router-redux'
+import { createStore, applyMiddleware } from 'redux'
+// import { combineReducers } from 'redux'// 旧的方法
+import { combineReducers } from 'redux-immutable' //新方法
+//import { routerReducer } from 'react-router-redux'
 import { apiMiddleware } from 'call-api-middleware'
 import * as reducers from '../reducers'
 
 const reducer = combineReducers({
-  ...reducers,
-  routing: routerReducer
+  ...reducers
+  //routing: routerReducer
 })
 
 let middles = applyMiddleware(apiMiddleware)

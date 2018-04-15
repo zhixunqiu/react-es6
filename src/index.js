@@ -10,7 +10,11 @@ import configureStore from './store/configureStore'
 
 const browserHistory = createBrowserHistory()
 const store = configureStore()
-const history = syncHistoryWithStore(browserHistory, store)
+const history = syncHistoryWithStore(browserHistory, store,{
+    selectLocationState (state) {
+        return state.get('routing').toObject()
+    }
+})
 
 import App from './router/index'
 
