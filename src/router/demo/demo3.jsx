@@ -1,6 +1,11 @@
 import React, {Component, PureComponent} from 'react'
 import Immutable, { List, Map, is } from 'immutable'
 
+import {connect} from 'react-redux'
+import {bindActionCreators} from 'redux'
+
+import * as InitAction from 'Actions/init'
+
 class ListItem extends PureComponent{
     render(){
         let data = this.props.data
@@ -16,8 +21,23 @@ class ListItem extends PureComponent{
     }
 }
 
+function mapStateToProps(state) {
+  const {
+    list
+  } = state.get("initReducer").toObject()
 
-export default class Demo2 extends Component{
+  return {
+    list
+  }
+}
+
+function mapDispatchToProps(dispatch){
+  return {
+    InitAction : bindActionCreators(InitAction,dispatch)
+  }
+}
+
+class Demo3 extends Component{
     constructor(props){
         super(props)
         this.state = {
@@ -29,20 +49,11 @@ export default class Demo2 extends Component{
     }
 
     componentWillMount(){
-        // 构造一个2000个数据的数组
-        let dataArr = [];
-        for(let i = 0; i < 20; i++){
-            let checked = Math.random() < 0.5
-            dataArr.push({
-                name: i,
-                checked
-            })
-        }
-        this.setState({list:Immutable.fromJS(dataArr)})
+        this.props.InitAction.getInvite()
     }
 
-    componentDidMount(){
-        
+    componentWillReceiveProps(nextProps){
+        this.setState({list:nextProps.list})
     }
 
     toggleChecked(event){
@@ -77,3 +88,5 @@ export default class Demo2 extends Component{
         )
     }
 }
+
+export default connect(mapStateToProps,mapDispatchToProps)(Demo3)

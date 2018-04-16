@@ -10,7 +10,7 @@ const initialState = Immutable.fromJS({
 function initReducer (state = initialState, action) {
   switch (action.type) {
     case GET_INIT_LIST:
-      return Immutable.merge(state,Map({
+      return state.merge(Map({
         list: action.data
       }))
     default:
