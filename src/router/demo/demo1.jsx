@@ -1,5 +1,4 @@
 import React, {Component} from 'react'
-
 class ListItem extends Component{
     // shouldComponentUpdate(nextProps, nextState){
     //     if(this.props.data.checked !== nextProps.data.checked){
