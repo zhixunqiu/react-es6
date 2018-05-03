@@ -1,7 +1,7 @@
 import Immutable from 'immutable'
 export const GET_INIT_LIST = 'GET_INIT_LIST'
 
-function initDefault (list) {
+export function initDefault (list) {
   return {
     type: GET_INIT_LIST,
     data: list

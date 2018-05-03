@@ -41,7 +41,7 @@ class Demo3 extends Component{
     constructor(props){
         super(props)
         this.state = {
-            list : List([]),
+            //list : List([]),
             val : ''
         }
         this.toggleChecked = this.toggleChecked.bind(this)
@@ -53,16 +53,16 @@ class Demo3 extends Component{
     }
 
     componentWillReceiveProps(nextProps){
-        this.setState({list:nextProps.list})
+        //this.setState({list:nextProps.list})
     }
 
     toggleChecked(event){
         let checked = event.target.checked
         let index = event.target.getAttribute("data-index")
         
-        const list = this.state.list.setIn([index,'checked'],checked)
-        
-        this.setState({list})
+        const list = this.props.list.setIn([index,'checked'],checked)
+        this.props.InitAction.initDefault(list)
+        //this.setState({list})
     }
 
     changeInput(e){
@@ -75,7 +75,7 @@ class Demo3 extends Component{
             <div>
                 <input type="text" value={this.state.iptVal} onChange={this.changeInput}/>
                 <ul>
-                    {this.state.list.map((data, index)=>{
+                    {this.props.list.map((data, index)=>{
                         return (
                             <ListItem data={data}
                                 index={index} key={data.get('name')}

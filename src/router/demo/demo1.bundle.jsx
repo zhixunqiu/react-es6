@@ -1,10 +1,31 @@
 import React, {Component} from 'react'
+//import { is } from 'immutable'
+
 class ListItem extends Component{
     // shouldComponentUpdate(nextProps, nextState){
     //     if(this.props.data.checked !== nextProps.data.checked){
     //         return true
     //     }
     //     return false
+    // }
+
+    // shouldComponentUpdate(nextProps, nextState) {
+    //     const thisProps = this.props || {};
+    //     const thisState = this.state || {};
+    //     if (Object.keys(thisProps).length !== Object.keys(nextProps).length || Object.keys(thisState).length !== Object.keys(nextState).length) {
+    //         return true; 
+    //     }
+    //     for (const key in nextProps) {
+    //         if (nextProps.hasOwnProperty(key) &&
+    //         !is(thisProps[key], nextProps[key])) { return true;
+    //         } 
+    //     }
+    //     for (const key in nextState) {
+    //         if (nextState.hasOwnProperty(key) &&
+    //         !is(thisState[key], nextState[key])) { return true;
+    //         } 
+    //     }
+    //     return false; 
     // }
 
     render(){
@@ -31,6 +52,7 @@ export default class Demo1 extends Component{
         }
         this.toggleChecked = this.toggleChecked.bind(this)
         this.changeInput = this.changeInput.bind(this)
+        this.clickTodemo3 = this.clickTodemo3.bind(this)
     }
 
     componentWillMount(){
@@ -43,7 +65,13 @@ export default class Demo1 extends Component{
                 checked
             })
         }
+        // console.log(is({a:1},{a:1}))
+        // console.log('------------------')
         this.setState({list:dataArr})
+    }
+
+    clickTodemo3(){
+        this.props.history.push('/demo3')
     }
 
     componentDidMount(){
@@ -68,6 +96,7 @@ export default class Demo1 extends Component{
         return (
             <div>
                 <input type="text" value={this.state.iptVal} onChange={this.changeInput}/>
+                <div onClick={this.clickTodemo3}>click to demo3</div>
                 <ul>
                     {this.state.list.map((data, index)=>{
                         return (

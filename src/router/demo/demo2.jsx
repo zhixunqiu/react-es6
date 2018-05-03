@@ -29,6 +29,9 @@ export default class Demo2 extends Component{
     }
 
     componentWillMount(){
+        // const a = Immutable.fromJS({a:12,b:{c:11}})
+        // console.log(a.getIn(['b','c']))
+
         // 构造一个2000个数据的数组
         let dataArr = [];
         for(let i = 0; i < 20; i++){
