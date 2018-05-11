@@ -41,4 +41,4 @@ class Bundle extends React.Component {
 }  
   
   
-export default Bundle;
+export default Bundle

@@ -1,9 +1,9 @@
-import React from 'react';  
-import Bundle from './Bundle';  
+import React from 'react' 
+import Bundle from './Bundle'  
   
   
 // 默认加载组件，可以直接返回 null   
-const Loading = () => <div>Loading...</div>;  
+const Loading = () => <div>Loading...</div>  
   
   
 /* 
@@ -13,13 +13,14 @@ const Loading = () => <div>Loading...</div>;
       {Comp => (Comp ? <Comp {...props} /> : <Loading />)} 
    </Bundle> 
 */   
-const lazyLoad = (loadComponent,props) =>  
-{//Bundle  包含的是一个函数子组件 由Bundle.js里的this.props.children(this.state.mod)渲染  
+const lazyLoad = (loadComponent) =>  
+{//Bundle  包含的是一个函数子组件 由Bundle.js里的this.props.children(this.state.mod)渲染 
+
   return () => (  
    <Bundle load={loadComponent}>  
-      {Comp => (Comp ? <Comp {...props} /> : <Loading />)}  
+      {Comp => (Comp ? <Comp /> : <Loading />)}  
    </Bundle>);
 }  
   
   
-export default lazyLoad;  
+export default lazyLoad  

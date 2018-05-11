@@ -18,15 +18,17 @@ module.exports = {
   moduleWebpack: {
     rules: [
       {  
-          test: /\.bundle\.js$/,  
-          use: [{loader: 'bundle-loader'}],  
+          test: /\.bundle\.jsx$/, 
           include: [
-          path.resolve(__dirname, 'src')
-        ],  
-          options: {  
-              lazy: true,  
-              name: '[name]'  
-          }  
+            path.resolve(__dirname, 'src')
+          ],  
+          use:{
+            loader: 'bundle-loader',           
+            options: {  
+                lazy: true,  
+                name: '[name]'  
+            }
+          } 
       },
       {
         test: [/\.js$/, /\.jsx$/, /\.es6$/],
