@@ -27,7 +27,7 @@ class Bundle extends React.Component {
       mod: null  
     });  
     // 传入组件的组件  
-    props.load((mod) => {  
+    props.load((mod) => {
       this.setState({  
         mod: mod.default ? mod.default : mod  
       });  

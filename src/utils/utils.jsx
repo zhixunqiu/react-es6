@@ -16,9 +16,9 @@ const Loading = () => <div>Loading...</div>
 const lazyLoad = (loadComponent) =>  
 {//Bundle  包含的是一个函数子组件 由Bundle.js里的this.props.children(this.state.mod)渲染 
 
-  return () => (  
+  return (props) => (  
    <Bundle load={loadComponent}>  
-      {Comp => (Comp ? <Comp /> : <Loading />)}  
+      {Comp => (Comp ? <Comp {...props}/> : <Loading />)}  
    </Bundle>);
 }  
   

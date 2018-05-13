@@ -86,6 +86,7 @@ module.exports = {
       Images: path.resolve(__dirname, 'images/'),
       Style: path.resolve(__dirname, 'styles/'),
       Actions: path.resolve(__dirname, 'src/actions'),
+      Utils: path.resolve(__dirname, 'src/utils')
     },
     extensions: ['.js', '.jsx', '.es6'],
     modules: [path.resolve(__dirname, 'src'), 'node_modules']

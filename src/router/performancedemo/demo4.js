@@ -28,6 +28,7 @@ export default class Demo4 extends Component{
             val : ''
         }
         this.changeInput = this.changeInput.bind(this)
+        this.jumpToDemo2 = this.jumpToDemo2.bind(this)
     }
 
     changeInput(e){
@@ -35,10 +36,15 @@ export default class Demo4 extends Component{
         this.setState({val})
     }
 
+    jumpToDemo2(){
+        this.props.history.push("/performancedemo/demo2")
+    }
+
     render(){ console.log('Demo4')
         return (
             <div>
                 <input type="text" value={this.state.iptVal} onChange={this.changeInput}/>
+                <div onClick={this.jumpToDemo2}>跳转到demo2</div>
                 <NameItem />
             </div>
         )

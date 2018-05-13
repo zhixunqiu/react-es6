@@ -8,6 +8,7 @@ import createBrowserHistory from 'history/createBrowserHistory'
 
 import configureStore from './store/configureStore'
 
+import lazyLoad from 'Utils/utils'
 //const browserHistory = createBrowserHistory()
 const store = configureStore()
 // const history = syncHistoryWithStore(browserHistory, store,{
