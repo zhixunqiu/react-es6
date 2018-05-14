@@ -1,10 +1,19 @@
 import React from 'react'
 import { Route, Switch, Link } from 'react-router-dom'
+import Loadable from 'react-loadable'
+
 import lazyLoad from 'Utils/utils'
 import Demo1 from './demo1.bundle'
-import Demo2 from './demo2'
+//import Demo2 from './demo2'
 import Demo3 from './demo3'
 import Demo4 from './demo4'
+
+const Loading = () => <div>Loading...</div>
+const Demo2 = Loadable({
+  loader: () => import('./demo2'),
+  loading: Loading,
+})
+
 const App = ({ match }) => {
   return (
     <div>
